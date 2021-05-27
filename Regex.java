@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class Regex {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        String firstName,lastName,email,phoneNumber;
+        String firstName,lastName,email,phoneNumber,password;
         do {
             System.out.println("Enter first name");
             firstName = scanner.next();
@@ -26,6 +26,12 @@ public class Regex {
             phoneNumber = scanner.next();
             lastName(phoneNumber);
         }while(!phoneNumber(phoneNumber));
+        do {
+            System.out.println("Enter password");
+            password = scanner.next();
+            lastName(password);
+        }while(!password(password));
+        System.out.println("Registeration successful");
     }
     public static boolean regexCheck(String reg, String input){
         Pattern compile = Pattern.compile(reg);
@@ -48,6 +54,10 @@ public class Regex {
     public static boolean phoneNumber(String phoneNumber) {
         String reg = "^\\d{10}$";
         return regexCheck(reg, phoneNumber);
+    }
+    public static boolean password(String password) {
+        String reg = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&*-+=()]).{8,}$";
+        return regexCheck(reg, password);
     }
 
 }
