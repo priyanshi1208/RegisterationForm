@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class Regex {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        String firstName,lastName;
+        String firstName,lastName,email;
         do {
             System.out.println("Enter first name");
             firstName = scanner.next();
@@ -15,7 +15,12 @@ public class Regex {
             System.out.println("Enter last name");
             lastName = scanner.next();
             lastName(lastName);
-        }while(!firstName(lastName));
+        }while(!lastName(lastName));
+        do {
+            System.out.println("Enter email");
+            email = scanner.next();
+            lastName(email);
+        }while(!email(email));
     }
     public static boolean regexCheck(String reg, String input){
         Pattern compile = Pattern.compile(reg);
@@ -30,6 +35,10 @@ public class Regex {
     public static boolean lastName(String lastName) {
         String reg = "^[A-Z][a-z]{3,}";
         return regexCheck(reg, lastName);
+    }
+    public static boolean email(String email) {
+        String reg = "^[a-za-z0-9-\\+]+(\\.[a-za-z0-9-]+)*@"+"[a-za-z0-9-]+(\\.[a-za-z0-9]+)*(\\.[a-za-z]{2,})$";
+        return regexCheck(reg, email);
     }
 
 }
