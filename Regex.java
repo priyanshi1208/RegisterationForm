@@ -37,6 +37,7 @@ public class Regex {
         Pattern compile = Pattern.compile(reg);
         Matcher matcher = compile.matcher(input);
         boolean matches=matcher.matches();
+        System.out.println(matches);
         return matches;
     }
    public static boolean firstName(String firstName){
@@ -52,7 +53,7 @@ public class Regex {
         return regexCheck(reg, email);
     }
     public static boolean phoneNumber(String phoneNumber) {
-        String reg = "^\\d{10}$";
+        String reg = "[\\d]{2}[ ]?[\\d]{10}";
         return regexCheck(reg, phoneNumber);
     }
     public static boolean password(String password) {
